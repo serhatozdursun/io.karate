@@ -66,3 +66,4 @@ Feature: Post requests
     Then status 200
     * def responseLength = call myJSFun $.name
     Then  match postedLength == responseLength
+    Then print 'response----',response

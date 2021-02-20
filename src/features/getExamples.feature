@@ -10,7 +10,7 @@ Feature: Get requests
     And param status = <status>
     When method GET
     Then status 200
-    Then print response
+    Then print 'response----',response
     Examples:
       | status      |
       | 'pending'   |
@@ -30,8 +30,10 @@ Feature: Get requests
     Then match $.message contains 'logged in user session'
     Then match $.type == 'unknown'
     Then assert responseTime < 1000
+    Then print 'response----',response
 
-    @GET @regression
+
+  @GET @regression
     Scenario: Get posted pet
       * def petPostScenario = read('postExamples.feature@createPet')
       * def result = call petPostScenario
@@ -42,6 +44,8 @@ Feature: Get requests
       When method GET
       Then status 200
       Then match $.name == patName
+    Then print 'response----',response
+
 
 
 

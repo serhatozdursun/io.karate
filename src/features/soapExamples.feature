@@ -22,7 +22,7 @@ Feature: Soap examples
     Then status 200
     * def result = <initA>+<initB>
     Then match /Envelope/Body/AddResponse/AddResult == result
-    Then print response
+    Then print 'response----',response
     Examples:
       | initA | initB |
       | 3     | 2     |
@@ -38,4 +38,5 @@ Feature: Soap examples
     When soap action 'http://tempuri.org/Add'
     Then status 200
     Then match /Envelope/Body/AddResponse/AddResult == 5
-    Then print response
+    Then print 'response----',response
+
